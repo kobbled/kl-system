@@ -1,0 +1,58 @@
+PROGRAM systemlib
+%NOBUSYLAMP
+%COMMENT = 'system functs'
+%NOLOCKGROUP
+%NOPAUSE = COMMAND + TPENABLE + ERROR
+
+%include strings.klh
+%include systemlib.klh
+
+BEGIN
+END systemlib
+
+ROUTINE system__date
+  VAR
+    tme   : INTEGER
+    sec : INTEGER
+    str    : STRING[30]
+    secstr : STRING[4]
+  BEGIN
+    GET_TIME(tme)
+    CNV_TIME_STR(tme,str)
+    --strip out date DD-MMM-YYY
+    str = SUB_STR(str,1,9)
+    
+    RETURN(rstrip(str))
+  END system__date
+
+ROUTINE system__time
+  VAR
+    tme, hr, mnt, sec   : INTEGER
+    str    : STRING[30]
+  BEGIN
+    GET_TIME(tme)
+    CNV_TIME_STR(tme,str)
+    --parse out HH:MM: from DD-MMM-YYY HH:MM:
+    str = SUB_STR(str,STR_LEN(str)-6,STR_LEN(str))
+    str = rstrip(lstrip(str)) + ':'
+    --get seconds
+    sec = tme AND 31    -- 0000000000011111
+    --seconds stored 2-second increments (0-29)
+    -- double to convert to 0-59
+    sec = sec * 2
+
+    --combine into string HH:MM:SS
+    IF sec < 10 THEN str = str + '0' ; ENDIF
+    str = str + i_to_s(sec)
+    
+    RETURN(str)
+  END system__time
+
+ROUTINE system__millis
+  VAR
+    s,e : INTEGER
+    t : INTEGER
+  BEGIN
+    GET_VAR(e, '*system*', '$fast_clock', t, s)
+    RETURN(t)
+  END system__millis

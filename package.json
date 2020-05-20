@@ -1,0 +1,21 @@
+{
+  "manver" : "1",
+  "project" : "systemlib",
+  "description" : "",
+  "version" : "0.0.1",
+  "license" : "Apache 2.0",
+  "author" : "kobbled",
+  "source" : [
+    "src/systemlib.kl"
+  ],
+  "includes" : [
+    "include"
+  ],
+  "depends" : [
+    "Strings",
+    "KUnit",
+    "ktransw-macros"
+  ],
+  "external_paths" : [
+  ]
+}
