@@ -47,12 +47,3 @@ ROUTINE system__time
     
     RETURN(str)
   END system__time
-
-ROUTINE system__millis
-  VAR
-    s,e : INTEGER
-    t : INTEGER
-  BEGIN
-    GET_VAR(e, '*system*', '$fast_clock', t, s)
-    RETURN(t)
-  END system__millis
