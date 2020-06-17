@@ -9,8 +9,10 @@
 -- namespaced members in format <prog_name_alias>__<func_name>
 declare(prog_name,date,prog_name_alias,date)
 declare(prog_name,time,prog_name_alias,time)
+declare(prog_name,pns_to_str,prog_name_alias,pnssr)
 
 ROUTINE system__date : STRING FROM systemlib
 ROUTINE system__time : STRING FROM systemlib
+ROUTINE system__pns_to_str : STRING FROM systemlib
 
 %endif --source_h

@@ -47,3 +47,29 @@ ROUTINE system__time
     
     RETURN(str)
   END system__time
+
+ROUTINE system__pns_to_str
+  VAR
+    i : INTEGER
+    sno : STRING[8]
+    num : INTEGER
+  BEGIN
+    --create select number output
+    sno =''
+    --UOPO[11-18]
+    FOR i=24 TO 31 DO
+      IF OPIN[i] THEN sno = sno + '1'; ELSE sno = sno + '0'; ENDIF
+    ENDFOR
+
+    --if all SNO inputs are off add 1. select number output
+    --should always be at least 1.
+    num = bin_to_i(sno)
+    IF num = 0 THEN
+      num = 1
+    ENDIF
+    
+    num = $SHELL_CFG.$JOB_BASE + num
+    --return full name i.e. PNS1001 if $PNS_PROGRAM = PNS
+    --$SHELL_CFG.$JOB_BASE = 1000 and UO[11] = TRUE
+    RETURN($PNS_PROGRAM + i_to_s(num))
+  END system__pns_to_str

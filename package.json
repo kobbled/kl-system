@@ -8,14 +8,20 @@
   "source" : [
     "src/systemlib.kl"
   ],
+  "tests" : [
+    "test/test_ls_pns.ls"
+  ],
   "includes" : [
     "include"
   ],
   "depends" : [
+    "TPElib",
+    "registers",
     "Strings",
     "KUnit",
     "ktransw-macros"
   ],
-  "external_paths" : [
+  "tp-interfaces" : [
+    {"routine" : "system__pns_to_str", "program_name" : "pns2sr"}
   ]
 }

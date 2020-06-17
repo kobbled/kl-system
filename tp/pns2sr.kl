@@ -1,0 +1,14 @@
+PROGRAM pns2sr
+%NOBUSYLAMP
+%NOLOCKGROUP
+
+VAR
+	reg_no : INTEGER
+%include tpe.klh
+%include registers.klh
+%include systemlib.klh
+
+BEGIN
+	reg_no = tpe__get_int_arg(1)
+	registers__set_string(reg_no, system__pns_to_str)
+END pns2sr
