@@ -4,9 +4,9 @@ PROGRAM pns2sr
 
 VAR
 	reg_no : INTEGER
-%include tpe.klh
-%include registers.klh
-%include systemlib.klh
+%from tpe.klh %import get_int_arg
+%from registers.klh %import set_string
+%from systemlib.klh %import pns_to_str
 
 BEGIN
 	reg_no = tpe__get_int_arg(1)

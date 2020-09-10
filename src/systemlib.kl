@@ -4,7 +4,7 @@ PROGRAM systemlib
 %NOLOCKGROUP
 %NOPAUSE = COMMAND + TPENABLE + ERROR
 
-%include strings.klh
+%from strings.klh %import rstrip, lstrip, i_to_s, bin_to_i
 %include systemlib.klh
 
 BEGIN
