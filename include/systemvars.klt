@@ -1,0 +1,7 @@
+%ifndef systemvars_t
+%define systemvars_t
+
+--POSITION type of a zero frame POS(0,0,0,0,0,0,)
+%define ZEROPOS $MOR_GRP[1].$NILPOS
+
+%endif --systemvars_t
