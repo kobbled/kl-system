@@ -2,6 +2,8 @@
 %define systemvars_t
 
 --POSITION type of a zero frame POS(0,0,0,0,0,0,)
-%define ZEROPOS $MOR_GRP[1].$NILPOS
+%defeval ZEROPOS(g) $MOR_GRP[g].$NILPOS
+%define DYNAMIC_LEADER(f,l) $CD_PAIR[f].$LEADER_FRM[l]
+%define TOTAL_GROUPS ARRAY_LEN($GROUP) 
 
 %endif --systemvars_t
