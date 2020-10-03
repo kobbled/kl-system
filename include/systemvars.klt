@@ -4,6 +4,8 @@
 --POSITION type of a zero frame POS(0,0,0,0,0,0,)
 %defeval ZEROPOS(g) $MOR_GRP[g].$NILPOS
 %define DYNAMIC_LEADER(f,l) $CD_PAIR[f].$LEADER_FRM[l]
-%define TOTAL_GROUPS ARRAY_LEN($GROUP) 
+%define TOTAL_GROUPS ARRAY_LEN($GROUP)
+%define CURRENT_UTOOL $MNUTOOLNUM[1]
+%define CURRENT_UFRAME $MNUFRAMENUM[1]
 
 %endif --systemvars_t
