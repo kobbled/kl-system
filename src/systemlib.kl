@@ -73,3 +73,12 @@ ROUTINE system__pns_to_str
     --$SHELL_CFG.$JOB_BASE = 1000 and UO[11] = TRUE
     RETURN($PNS_PROGRAM + i_to_s(num))
   END system__pns_to_str
+
+
+ROUTINE VEC
+  VAR
+    v : VECTOR
+  BEGIN
+    v.x = x; v.y = y; v.z = z;
+    RETURN(v)
+  END VEC
