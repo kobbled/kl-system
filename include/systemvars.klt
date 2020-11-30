@@ -3,6 +3,7 @@
 
 --POSITION type of a zero frame POS(0,0,0,0,0,0,)
 %defeval ZEROPOS(g) $MOR_GRP[g].$NILPOS
+%defeval ZEROARR $MOR_GRP[1].$CUR_NOM_ANG
 %define DYNAMIC_LEADER(f,l) $CD_PAIR[f].$LEADER_FRM[l]
 %define TOTAL_GROUPS ARRAY_LEN($GROUP)
 %define GROUP_KINEMATICS(g) $SCR_GRP[g].$KINEM_ENB
