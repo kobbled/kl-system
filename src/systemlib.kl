@@ -82,3 +82,13 @@ ROUTINE VEC
     v.x = x; v.y = y; v.z = z;
     RETURN(v)
   END VEC
+
+ROUTINE compare_VEC
+  BEGIN
+    IF ((ABS(v2.x - v1.x) < tolerance) AND (ABS(v2.y - v1.y) < tolerance) AND &
+       (ABS(v2.z - v1.z) < tolerance)) THEN
+        RETURN(TRUE)
+    ELSE
+      RETURN(FALSE)
+    ENDIF
+  END compare_VEC

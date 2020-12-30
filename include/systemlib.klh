@@ -14,5 +14,6 @@ declare_function(prog_name,pns_to_str,prog_name_alias,pnssr)
 ROUTINE system__pns_to_str : STRING FROM systemlib
 
 ROUTINE VEC(x : REAL; y : REAL; z : REAL) : VECTOR FROM systemlib
+ROUTINE compare_VEC(v1 : VECTOR ; v2 : VECTOR; tolerance : REAL) : BOOLEAN FROM systemlib
 
 %endif --source_h
