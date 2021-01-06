@@ -4,6 +4,11 @@ PROGRAM systemlib
 %NOLOCKGROUP
 %NOPAUSE = COMMAND + TPENABLE + ERROR
 
+%include systemlib.klt
+
+-- define path types
+path_default_types
+
 %from strings.klh %import rstrip, lstrip, i_to_s, bin_to_i
 %include systemlib.klh
 

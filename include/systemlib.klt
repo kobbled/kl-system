@@ -1,5 +1,28 @@
 %ifndef systemlib_t
 %define systemlib_t
 
+%define DEFAULT_BYTE 255
+%define DEFAULT_SHORT 32767
+
+%mode push
+%mode string QQQ "`" "`" "\\"
+%define path_default_types `TYPE
+  t_INTEGER FROM systemlib = STRUCTURE
+    v : INTEGER
+  ENDSTRUCTURE
+
+  t_REAL FROM systemlib = STRUCTURE
+    v : REAL
+  ENDSTRUCTURE
+
+  t_STRING16 FROM systemlib = STRUCTURE
+    v : STRING[16]
+  ENDSTRUCTURE
+
+  t_BOOL FROM systemlib = STRUCTURE
+    v : BOOLEAN
+  ENDSTRUCTURE
+  `
+%mode pop
 
 %endif --systemlib_t
