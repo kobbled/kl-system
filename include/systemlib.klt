@@ -4,9 +4,7 @@
 %define DEFAULT_BYTE 255
 %define DEFAULT_SHORT 32767
 
-%mode push
-%mode string QQQ "`" "`" "\\"
-%define path_default_types `TYPE
+TYPE
   t_INTEGER FROM systemlib = STRUCTURE
     v : INTEGER
   ENDSTRUCTURE
@@ -22,7 +20,9 @@
   t_BOOL FROM systemlib = STRUCTURE
     v : BOOLEAN
   ENDSTRUCTURE
-  `
-%mode pop
+
+  t_VECTOR FROM systemlib = STRUCTURE
+    v : VECTOR
+  ENDSTRUCTURE
 
 %endif --systemlib_t
