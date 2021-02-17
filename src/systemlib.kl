@@ -85,6 +85,14 @@ ROUTINE VEC
     RETURN(v)
   END VEC
 
+ROUTINE VEC2D
+  VAR
+    v : VECTOR
+  BEGIN
+    v.x = x; v.y = y; v.z = 0;
+    RETURN(v)
+  END VEC2D
+
 ROUTINE compare_VEC
   BEGIN
     IF ((ABS(v2.x - v1.x) < tolerance) AND (ABS(v2.y - v1.y) < tolerance) AND &
