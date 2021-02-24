@@ -15,13 +15,17 @@
     "include"
   ],
   "depends" : [
-    "TPElib",
-    "registers",
     "Strings",
-    "KUnit",
     "ktransw-macros"
+  ],
+  "tests-depends" : [
+    "KUnit"
   ],
   "tp-interfaces" : [
     {"routine" : "system__pns_to_str", "program_name" : "pns2sr"}
+  ],
+  "interface-depends" : [
+    "TPElib",
+    "registers"
   ]
 }
