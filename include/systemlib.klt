@@ -24,4 +24,8 @@ TYPE
     v : VECTOR
   ENDSTRUCTURE
 
+  t_POSE FROM systemlib = STRUCTURE
+    v : XYZWPR
+  ENDSTRUCTURE
+
 %endif --systemlib_t
