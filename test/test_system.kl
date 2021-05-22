@@ -1,0 +1,25 @@
+PROGRAM test_system
+%NOBUSYLAMP
+%COMMENT = ''
+%NOLOCKGROUP
+
+%include systemlib.klt
+%include systemvars.klt
+
+%include systemlib.klh
+%include kunit.klh
+
+ROUTINE t_set_ldr : BOOLEAN
+  VAR
+    frm : XYZWPR
+  BEGIN
+    frm = POS(0,0,0,90,0,90, (ZEROPOS(1).config_data))
+    system__set_leader_frame(1, 1, frm)
+    
+    RETURN(TRUE)
+  END t_set_ldr
+
+BEGIN
+  kunit_test('set leader frame', t_set_ldr)
+  kunit_done
+END test_system

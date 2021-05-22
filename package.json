@@ -9,7 +9,7 @@
     "src/systemlib.kl"
   ],
   "tests" : [
-    "test/test_ls_pns.ls"
+    "test/test_system.kl"
   ],
   "includes" : [
     "include"

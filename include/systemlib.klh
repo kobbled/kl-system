@@ -12,6 +12,8 @@ declare_function(prog_name,time,prog_name_alias,time)
 ROUTINE system__time : STRING FROM systemlib
 declare_function(prog_name,pns_to_str,prog_name_alias,pnssr)
 ROUTINE system__pns_to_str : STRING FROM systemlib
+declare_function(prog_name,set_leader_frame,prog_name_alias,stldr)
+ROUTINE system__set_leader_frame(cd_pair_no : INTEGER; ldr_frm_no : INTEGER; frm : XYZWPR) FROM systemlib
 
 ROUTINE VEC(x : REAL; y : REAL; z : REAL) : VECTOR FROM systemlib
 ROUTINE VEC2D(x : REAL; y : REAL) : VECTOR FROM systemlib

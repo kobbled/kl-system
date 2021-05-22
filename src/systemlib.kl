@@ -4,6 +4,7 @@ PROGRAM systemlib
 %NOLOCKGROUP
 %NOPAUSE = COMMAND + TPENABLE + ERROR
 
+%include systemvars.klt
 %include systemlib.klt
 
 %from strings.klh %import rstrip, lstrip, i_to_s, bin_to_i
@@ -75,6 +76,15 @@ ROUTINE system__pns_to_str
     --$SHELL_CFG.$JOB_BASE = 1000 and UO[11] = TRUE
     RETURN($PNS_PROGRAM + i_to_s(num))
   END system__pns_to_str
+
+ROUTINE system__set_leader_frame
+  VAR
+    entry, status : INTEGER
+    p : POSITION IN GROUP[1]
+  BEGIN
+    p = frm
+    SET_VAR(entry, '*SYSTEM*', '$CD_PAIR['+i_to_s(cd_pair_no)+'].$LEADER_FRM['+i_to_s(ldr_frm_no)+']', p, status)
+  END system__set_leader_frame
 
 
 ROUTINE VEC
