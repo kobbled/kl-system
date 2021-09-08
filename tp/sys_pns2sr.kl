@@ -1,4 +1,4 @@
-PROGRAM pns2sr
+PROGRAM sys_pns2sr
 %NOBUSYLAMP
 %NOLOCKGROUP
 
@@ -11,4 +11,4 @@ VAR
 BEGIN
 	out_reg = tpe__get_int_arg(1)
 	registers__set_string(out_reg, system__pns_to_str)
-END pns2sr
+END sys_pns2sr
