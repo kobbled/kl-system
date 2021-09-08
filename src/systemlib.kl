@@ -77,6 +77,12 @@ ROUTINE system__pns_to_str
     RETURN($PNS_PROGRAM + i_to_s(num))
   END system__pns_to_str
 
+-- only needed as a tp interface for setting SRs
+ROUTINE system__set_string
+  BEGIN
+    RETURN(str_val)
+  END system__set_string
+
 ROUTINE system__set_leader_frame
   VAR
     entry, status : INTEGER
@@ -85,6 +91,15 @@ ROUTINE system__set_leader_frame
     p = frm
     SET_VAR(entry, '*SYSTEM*', '$CD_PAIR['+i_to_s(cd_pair_no)+'].$LEADER_FRM['+i_to_s(ldr_frm_no)+']', p, status)
   END system__set_leader_frame
+
+ROUTINE system__get_leader_frame
+  VAR
+    entry, status : INTEGER
+    p : POSITION IN GROUP[1]
+  BEGIN
+    GET_VAR(entry, '*SYSTEM*', '$CD_PAIR['+i_to_s(cd_pair_no)+'].$LEADER_FRM['+i_to_s(ldr_frm_no)+']', p, status)
+    RETURN(p)
+  END system__get_leader_frame
 
 
 ROUTINE VEC
