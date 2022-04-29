@@ -4,6 +4,13 @@
 %include systemlib.c.klt
 
 TYPE
+
+  VECTOR2D FROM systemlib = STRUCTURE
+    x : REAL
+    y : REAL
+  ENDSTRUCTURE
+
+-- use atomic types for usage in PATHS.
   t_INTEGER FROM systemlib = STRUCTURE
     v : INTEGER
   ENDSTRUCTURE
