@@ -1,0 +1,45 @@
+%ifndef systemlibgenerics_t
+%define systemlibgenerics_t
+
+%mode push
+%mode string QQQ "`" "`" "\\"
+
+%define impl_glte_body(varname1,varname2,comparator_var,callback_func,epsilon_value) `
+    SELECT comparator_var OF
+      CASE(C_GREATER):
+        RETURN(callback_func(varname1) > callback_func(varname2))
+      CASE(C_LESSER):
+        RETURN(callback_func(varname1) < callback_func(varname2))
+      CASE(C_EQUAL):
+        IF (ABS(callback_func(varname2) - callback_func(varname1)) < epsilon_value) THEN 
+          RETURN(TRUE)
+        ELSE 
+          RETURN(FALSE) 
+        ENDIF
+      CASE(C_GREATEREQL):
+        IF (ABS(callback_func(varname2) - callback_func(varname1)) < epsilon_value) OR (callback_func(varname1) > callback_func(varname2)) THEN 
+          RETURN(TRUE)
+        ELSE 
+          RETURN(FALSE) 
+        ENDIF
+      CASE(C_LESSEREQL):
+        IF (ABS(callback_func(varname2) - callback_func(varname1)) < epsilon_value) OR (callback_func(varname1) < callback_func(varname2)) THEN 
+          RETURN(TRUE)
+        ELSE 
+          RETURN(FALSE) 
+        ENDIF
+      ELSE:
+    ENDSELECT
+`
+
+%define impl_glte_func(structtype,callback_func,epsilon_value) `
+ROUTINE glte_structtype(r1, r2 : structtype; comparator : INTEGER) : BOOLEAN
+  BEGIN
+    impl_glte_body(r1,r2,comparator,callback_func,epsilon_value)
+  END glte
+`
+
+%mode pop
+
+
+%endif --systemlibgenerics_t
