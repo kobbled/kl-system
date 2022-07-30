@@ -21,6 +21,15 @@ CONST
   C_INT_ARR = 10
   C_STR_ARR = 11
 
+--comparator codes
+CONST
+  C_GREATER     = 1
+  C_LESSER      = 2
+  C_EQUAL       = 3
+  C_GREATEREQL  = 4
+  C_LESSEREQL   = 5
+
+--all atomic types struct for returns on functions
 TYPE
   t_DATA_TYPE FROM systemlib = STRUCTURE
     int : INTEGER

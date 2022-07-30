@@ -6,9 +6,14 @@ PROGRAM systemlib
 
 %include systemvars.klt
 %include systemlib.klt
+%include systemlib.generics.klt
 
 %from strings.klh %import rstrip, lstrip, i_to_s, bin_to_i
 %include systemlib.klh
+%include systemlib.datatype.klh
+
+-- pi
+%define M_PI      3.14159265358979323846 
 
 BEGIN
 END systemlib
@@ -127,3 +132,48 @@ ROUTINE compare_VEC
       RETURN(FALSE)
     ENDIF
   END compare_VEC
+
+-- -----------
+-- functions for t_DATA_TYPE type
+-- -----------
+  --callback functions for comparator
+
+ROUTINE system__tdata_callback_int
+  BEGIN
+    RETURN(nde.int)
+  END system__tdata_callback_int
+
+ROUTINE system__tdata_callback_real
+  BEGIN
+    RETURN(nde.rl)
+  END system__tdata_callback_real
+
+ROUTINE system__tdata_callback_vec
+  BEGIN
+    --get euclidean distance
+    RETURN(SQRT(nde.vec.x*nde.vec.x + nde.vec.y*nde.vec.y + nde.vec.z*nde.vec.z))
+  END system__tdata_callback_vec
+
+ROUTINE system__tdata_callback_pose
+  BEGIN
+    --get euclidean distance in 6dof
+    RETURN(SQRT(nde.pos.x*nde.pos.x + nde.pos.y*nde.pos.y + nde.pos.z*nde.pos.z + (nde.pos.w*nde.pos.w)*M_PI/180 + (nde.pos.p*nde.pos.p)*M_PI/180 + (nde.pos.r*nde.pos.r)*M_PI/180))
+  END system__tdata_callback_pose
+
+
+ROUTINE system__tdata_glte
+%define EPSILON 0.01
+  BEGIN
+    SELECT typ OF
+      CASE(C_INT):
+        impl_glte_body(data1,data2,comparator,system__tdata_callback_int,EPSILON)
+      CASE(C_REAL):
+        impl_glte_body(data1,data2,comparator,system__tdata_callback_real,EPSILON)
+      CASE(C_VEC):
+        impl_glte_body(data1,data2,comparator,system__tdata_callback_vec,EPSILON)
+      CASE(C_POS):
+        impl_glte_body(data1,data2,comparator,system__tdata_callback_pose,EPSILON)
+      ELSE:
+        WRITE TPERROR('Cannot compare type:', typ, ' for a t_DATA_TYPE struct')
+    ENDSELECT
+  END system__tdata_glte

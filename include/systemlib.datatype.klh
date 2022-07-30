@@ -1,0 +1,24 @@
+%ifndef systemlibdata_h
+%define systemlibdata_h
+
+%include namespace.m
+
+%define prog_name system
+%define prog_name_alias syslib
+
+-- functions for t_DATA_TYPE type
+  --callback functions for comparator
+declare_function(prog_name,tdata_callback_int,prog_name_alias,cbint)
+ROUTINE system__tdata_callback_int(nde : t_DATA_TYPE) : INTEGER FROM systemlib
+declare_function(prog_name,tdata_callback_real,prog_name_alias,cbrel)
+ROUTINE system__tdata_callback_real(nde : t_DATA_TYPE) : REAL FROM systemlib
+declare_function(prog_name,tdata_callback_string,prog_name_alias,cbstr)
+ROUTINE system__tdata_callback_string(nde : t_DATA_TYPE) : STRING FROM systemlib
+declare_function(prog_name,tdata_callback_vec,prog_name_alias,cbvec)
+ROUTINE system__tdata_callback_vec(nde : t_DATA_TYPE) : REAL FROM systemlib
+declare_function(prog_name,tdata_callback_pose,prog_name_alias,cbpos)
+ROUTINE system__tdata_callback_pose(nde : t_DATA_TYPE) : REAL FROM systemlib
+declare_function(prog_name,tdata_glte,prog_name_alias,tdglt)
+ROUTINE system__tdata_glte(data1 :  t_DATA_TYPE; data2 :  t_DATA_TYPE; typ : INTEGER; comparator : INTEGER) : BOOLEAN FROM systemlib
+
+%endif --systemlibdata_h
