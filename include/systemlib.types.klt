@@ -1,0 +1,36 @@
+%ifndef systemlib_types_t
+%define systemlib_types_t
+
+TYPE
+
+  VECTOR2D FROM systemlib = STRUCTURE
+    x : REAL
+    y : REAL
+  ENDSTRUCTURE
+
+-- use atomic types for usage in PATHS.
+  t_INTEGER FROM systemlib = STRUCTURE
+    v : INTEGER
+  ENDSTRUCTURE
+
+  t_REAL FROM systemlib = STRUCTURE
+    v : REAL
+  ENDSTRUCTURE
+
+  t_STRING16 FROM systemlib = STRUCTURE
+    v : STRING[16]
+  ENDSTRUCTURE
+
+  t_BOOL FROM systemlib = STRUCTURE
+    v : BOOLEAN
+  ENDSTRUCTURE
+
+  t_VECTOR FROM systemlib = STRUCTURE
+    v : VECTOR
+  ENDSTRUCTURE
+
+  t_POSE FROM systemlib = STRUCTURE
+    v : XYZWPR
+  ENDSTRUCTURE
+
+%endif --systemlib_types_t

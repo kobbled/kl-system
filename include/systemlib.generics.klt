@@ -1,6 +1,8 @@
 %ifndef systemlibgenerics_t
 %define systemlibgenerics_t
 
+%include systemlib.codes.klt
+
 %mode push
 %mode string QQQ "`" "`" "\\"
 

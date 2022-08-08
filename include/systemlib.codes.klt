@@ -1,0 +1,26 @@
+%ifndef systemlib_codes_t
+%define systemlib_codes_t
+
+--type codes
+CONST
+  C_INT    = 1
+  C_REAL   = 2
+  C_STR    = 3
+  C_BOOL   = 4
+  C_VEC    = 5
+  C_POS    = 6
+  C_POSEXT = 7
+  C_CONFIG = 8
+  C_REAL_ARR = 9
+  C_INT_ARR = 10
+  C_STR_ARR = 11
+
+--comparator codes
+CONST
+  C_GREATER     = 1
+  C_LESSER      = 2
+  C_EQUAL       = 3
+  C_GREATEREQL  = 4
+  C_LESSEREQL   = 5
+
+%endif --systemlib_codes_t

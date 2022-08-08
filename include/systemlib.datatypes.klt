@@ -1,0 +1,17 @@
+%ifndef systemlib_datatypes_t
+%define systemlib_datatypes_t
+
+--all atomic types struct for returns on functions
+TYPE
+  t_DATA_TYPE FROM systemlib = STRUCTURE
+    int : INTEGER
+    rl : REAL
+    str : STRING[32]
+    bool : BOOLEAN
+    vec : VECTOR
+    pos : XYZWPR
+    posext : XYZWPREXT
+    cnfg : CONFIG
+  ENDSTRUCTURE
+
+%endif --systemlib_datatypes_t

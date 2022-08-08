@@ -1,0 +1,10 @@
+%ifndef systemlib_macros_t
+%define systemlib_macros_t
+
+%define DEFAULT_BYTE 255
+%define DEFAULT_SHORT 32766
+%define DEFAULT_REAL 1.E9
+%define MAX_INTEGER 2147483646
+%define MIN_INTEGER -2147483648
+
+%endif --systemlib_macros_t
