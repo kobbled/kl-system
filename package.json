@@ -23,10 +23,13 @@
   ],
   "tp-interfaces" : [
     {"routine" : "system__pns_to_str", "program_name" : "sys_pns2sr"},
+    {"routine" : "system__set_leader_frame", "program_name" : "sys_setldr"},
+    {"routine" : "system__get_leader_frame", "program_name" : "sys_getldr"},
     {"routine" : "system__set_string", "program_name" : "str_set"}
   ],
   "interface-depends" : [
     "TPElib",
-    "registers"
+    "registers",
+    "pose"
   ]
 }
