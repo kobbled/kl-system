@@ -8,6 +8,11 @@ TYPE
     y : REAL
   ENDSTRUCTURE
 
+  VECTOR2Di FROM systemlib = STRUCTURE
+    x : INTEGER
+    y : INTEGER
+  ENDSTRUCTURE
+
 -- use atomic types for usage in PATHS.
   t_INTEGER FROM systemlib = STRUCTURE
     v : INTEGER
