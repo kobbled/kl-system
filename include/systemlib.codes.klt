@@ -14,6 +14,7 @@ CONST
   C_REAL_ARR = 9
   C_INT_ARR = 10
   C_STR_ARR = 11
+  C_VEC2D   = 12
 
 --comparator codes
 CONST

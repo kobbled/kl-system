@@ -169,7 +169,7 @@ ROUTINE system__tdata_glte
         impl_glte_body(data1,data2,comparator,system__tdata_callback_int,EPSILON)
       CASE(C_REAL):
         impl_glte_body(data1,data2,comparator,system__tdata_callback_real,EPSILON)
-      CASE(C_VEC):
+      CASE(C_VEC,C_VEC2D):
         impl_glte_body(data1,data2,comparator,system__tdata_callback_vec,EPSILON)
       CASE(C_POS):
         impl_glte_body(data1,data2,comparator,system__tdata_callback_pose,EPSILON)
