@@ -16,6 +16,8 @@ declare_function(prog_name,set_string,prog_name_alias,ststr)
 ROUTINE system__set_string(str_val : STRING) : STRING FROM systemlib
 declare_function(prog_name,set_leader_frame,prog_name_alias,stldr)
 ROUTINE system__set_leader_frame(cd_pair_no : INTEGER; ldr_frm_no : INTEGER; frm : XYZWPR) FROM systemlib
+declare_function(prog_name,mask_leader_frame,prog_name_alias,msldr)
+ROUTINE system__mask_leader_frame(cd_pair_no : INTEGER; ldr_frm_no : INTEGER; axs : INTEGER; val : REAL) FROM systemlib
 declare_function(prog_name,get_leader_frame,prog_name_alias,gtldr)
 ROUTINE system__get_leader_frame(cd_pair_no : INTEGER; ldr_frm_no : INTEGER) : XYZWPR FROM systemlib
 

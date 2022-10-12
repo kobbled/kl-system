@@ -97,6 +97,40 @@ ROUTINE system__set_leader_frame
     SET_VAR(entry, '*SYSTEM*', '$CD_PAIR['+i_to_s(cd_pair_no)+'].$LEADER_FRM['+i_to_s(ldr_frm_no)+']', p, status)
   END system__set_leader_frame
 
+ROUTINE system__mask_leader_frame
+  VAR
+    entry, status : INTEGER
+    p : POSITION IN GROUP[1]
+    p2 : XYZWPR
+  BEGIN
+    --get current leader frame
+    p = system__get_leader_frame(cd_pair_no, ldr_frm_no)
+
+    --convert into xyz types
+    p2 = p
+
+    --mask coordinate
+    SELECT axs OF
+      CASE(1): --x
+        p2.x = val
+      CASE(2): --y
+        p2.y = val
+      CASE(3): --z
+        p2.z = val
+      CASE(4): --w
+        p2.w = val
+      CASE(5): --p
+        p2.p = val
+      CASE(6): --r
+        p2.r = val
+    ENDSELECT
+
+    --convert back to POSITION type
+    p = p2
+
+    SET_VAR(entry, '*SYSTEM*', '$CD_PAIR['+i_to_s(cd_pair_no)+'].$LEADER_FRM['+i_to_s(ldr_frm_no)+']', p, status)
+  END system__mask_leader_frame
+
 ROUTINE system__get_leader_frame
   VAR
     entry, status : INTEGER
