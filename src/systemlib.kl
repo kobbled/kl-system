@@ -140,6 +140,15 @@ ROUTINE system__get_leader_frame
     RETURN(p)
   END system__get_leader_frame
 
+ROUTINE system__int_to_bool
+  BEGIN
+    IF int = 0 THEN
+      RETURN(FALSE)
+    ELSE
+      RETURN(TRUE)
+    ENDIF
+  END system__int_to_bool
+
 
 ROUTINE VEC
   VAR

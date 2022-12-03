@@ -20,6 +20,8 @@ declare_function(prog_name,mask_leader_frame,prog_name_alias,msldr)
 ROUTINE system__mask_leader_frame(cd_pair_no : INTEGER; ldr_frm_no : INTEGER; axs : INTEGER; val : REAL) FROM systemlib
 declare_function(prog_name,get_leader_frame,prog_name_alias,gtldr)
 ROUTINE system__get_leader_frame(cd_pair_no : INTEGER; ldr_frm_no : INTEGER) : XYZWPR FROM systemlib
+declare_function(prog_name,int_to_bool,prog_name_alias,i2b)
+ROUTINE system__int_to_bool(int : INTEGER) : BOOLEAN FROM systemlib
 
 ROUTINE VEC(x : REAL; y : REAL; z : REAL) : VECTOR FROM systemlib
 ROUTINE VEC2D(x : REAL; y : REAL) : VECTOR FROM systemlib
