@@ -7,10 +7,12 @@ PROGRAM systemlib
 %include systemvars.klt
 %include systemlib.klt
 %include systemlib.generics.klt
+%include registers.klt
 
 %from strings.klh %import rstrip, lstrip, i_to_s, bin_to_i
 %include systemlib.klh
 %include systemlib.datatype.klh
+%include registers.klh
 
 -- pi
 %define M_PI      3.14159265358979323846 
@@ -220,3 +222,18 @@ ROUTINE system__tdata_glte
         WRITE TPERROR('Cannot compare type:', typ, ' for a t_DATA_TYPE struct')
     ENDSELECT
   END system__tdata_glte
+
+--------------------------------------
+-- functions for teach pendant keys --
+--------------------------------------
+-- only for TPINs
+ROUTINE system__get_tpkey_status
+  VAR
+    status_holder : BOOLEAN
+  BEGIN
+      -- get status of tp key
+      status_holder = TPIN[tpkey_no]
+      
+      -- apply status on flag
+      registers__set_io(registers__get_type_enum('F'), flag_no, status_holder)
+  END system__get_tpkey_status
